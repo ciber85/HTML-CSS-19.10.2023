@@ -1,0 +1,230 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #16bbce;
+}
+
+.container {
+  max-width: 1440px;
+  margin: auto;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-between;
+  background-color: #1379ac;
+  position: sticky;
+  z-index: 2;
+  top: 0;
+
+  .navFlex {
+    padding: 0 25px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    #img:hover {
+      cursor: pointer;
+      opacity: 0.3;
+      transition: 0.3s;
+    }
+
+    #openMenu {
+      background-color: palegreen;
+      color: rgb(34, 27, 21);
+      font-size: 15px;
+      cursor: pointer;
+      padding: 5px;
+      border-radius: 15px;
+      box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+        rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+        rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+      &:hover {
+        background-color: tan;
+        transform: scale(1.2);
+        transition: 0.3s;
+      }
+    }
+  }
+
+  ul {
+    padding: 25px;
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+  }
+
+  ul li {
+    display: flex;
+    list-style: none;
+  }
+
+  ul li a {
+    display: flex;
+    border: 1px solid greenyellow;
+    padding: 5px;
+    background-color: tan;
+    border-radius: 15px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: rgb(34, 27, 21);
+    cursor: pointer;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+      rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+      rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    &:hover {
+      background-color: lightgreen;
+      transform: scale(1.2);
+      transition: 0.3s;
+    }
+  }
+}
+
+/************** MODAL Part ********************/
+
+legend {
+  background-color: darksalmon;
+  padding: 5px;
+  color: #1379ac !important;
+  border: 2px solid orange;
+  border-radius: 15px;
+}
+
+.modalWrapper {
+  background-color: #bbbbb3da;
+  color: white;
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-content: center;
+  transition: 0.3s;
+  opacity: 0;
+  visibility: hidden;
+  .modal {
+    background-color: #97c72762;
+    padding: 15px;
+    border-radius: 10px;
+    translate: 0 -300%;
+    transition: 0.3s;
+    transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  fieldset {
+    border-radius: 10px;
+    width: 600px;
+    margin: auto;
+    display: grid;
+    gap: 20px;
+    padding: 0 40px 40px;
+    p {
+      text-align: right;
+      font-size: 20px;
+      font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+    }
+
+    .close {
+      background-color: forestgreen;
+      border: 2px solid black;
+      border-radius: 5px;
+      cursor: pointer;
+      display: inline-block;
+      width: 30px;
+      aspect-ratio: 1;
+      text-align: center;
+      line-height: 30px;
+      user-select: none;
+      transition: 0.3s;
+      &:hover {
+        color: red;
+      }
+    }
+
+    input {
+      height: 40px;
+    }
+  }
+}
+
+.modalActive {
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+.modalActive .modal {
+  translate: 0;
+}
+
+/************ Accordion Part *******************/
+
+.accordion {
+  transform: translate(950px);
+  padding: 30px;
+  background-color: #daf604;
+  width: 500px;
+  border-radius: 15px;
+  margin: 10%;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+.accItem {
+  display: block;
+  width: 100%;
+}
+
+.accHead {
+  cursor: pointer;
+  margin: 0px 0px 10px 0px;
+  padding: 10px;
+  font-size: 22px;
+  font-weight: 400;
+  background-color: #2980b9;
+  color: #fff;
+  width: 100%;
+  border-radius: 15px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  &:hover {
+    scale: 1.1;
+    background-color: darkorange;
+  }
+}
+
+.close .accContent {
+  height: 0px;
+  transition: 0.3;
+  transform: scaleY(0);
+  display: block;
+}
+
+.open .accContent {
+  padding: 20px;
+  background-color: whitesmoke;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  width: 100%;
+  margin: 0px 0px 10px 0px;
+  display: block;
+  transform: scaleY(1);
+  transition: transform 0.4s;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px,
+    rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
+    rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  &:hover {
+    scale: 1.1;
+  }
+}
+
+.open .accHead {
+  margin: 0px;
+  border-radius: 15px;
+  background-color: darkorange;
+  color: #cdd8d4;
+}
